@@ -66,18 +66,19 @@ var sumBelow = function(n) {
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
-var arr;
 var range = function(x, y) {
-	//input two numbers
-	  //build an empty array
-	  //if x is less than y then push into array
-	  //if x = y then return array
-	  //if x > y return an empty array
-	//output: array of numbers between these two inputs
-	if (x < y) {
-		var arr = [];
-		arr.push(range(x+1, y));
-	} else if (x === y) {
+	arr = [];
+	if (x+1 < y) {
+		arr.push(x+1)
+		return arr.concat(range(x+1, y));
+	} else if (x > y+1) {
+		arr.push(x-1)
+		return arr.concat(range(x-1, y));
+	} else if (x+1 === y) {
+		return arr;
+	} else if (x-1 === y) {
+		return arr;
+	} else {
 		return arr;
 	}
 };
