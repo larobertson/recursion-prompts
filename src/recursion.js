@@ -92,8 +92,9 @@ var exponent = function(base, exp) {
 	if (exp === 0) {
 		return 1;
 	} else if (exp < 0) {
-		return base * exponent(base, exp+1)
-	} else {
+		inv = (1/base);
+		return (inv.toPrecision() * exponent(base, exp+1))
+	} else if (exp > 0){
 		return base * exponent(base, exp-1)
 	}
 };
